@@ -1,4 +1,4 @@
-# LomeBordesFull
+# LomeBordes
 
 
 
@@ -15,14 +15,14 @@ Already a pro? Just edit this README.md and make it your own. Want to make it ea
 
 ```
 cd existing_repo
-git remote add origin https://forge.univ-lyon1.fr/p2203124/lomebordesfull.git
+git remote add origin https://forge.univ-lyon1.fr/p2203124/lomebordes.git
 git branch -M main
 git push -uf origin main
 ```
 
 ## Integrate with your tools
 
-- [ ] [Set up project integrations](https://forge.univ-lyon1.fr/p2203124/lomebordesfull/-/settings/integrations)
+- [ ] [Set up project integrations](https://forge.univ-lyon1.fr/p2203124/lomebordes/-/settings/integrations)
 
 ## Collaborate with your team
 

@@ -1,0 +1,6 @@
+[submodule "lomebordes"]
+	path = lomebordes
+	url = https://forge.univ-lyon1.fr/p2203124/lomebordes.git
+[submodule "lomebordesfront"]
+	path = lomebordesfront
+	url = https://forge.univ-lyon1.fr/p2203124/lomebordesfront.git
