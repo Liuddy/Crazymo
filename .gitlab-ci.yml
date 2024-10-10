@@ -41,6 +41,7 @@ build-backend:
   stage: build
   variables:
     GIT_SUBMODULE_STRATEGY: recursive  # Cloner les sous-modules
+  image: maven:3.9.6-jdk-17
   script:
     - echo "Current directory is $PWD"
     - echo "List files in current directory"
