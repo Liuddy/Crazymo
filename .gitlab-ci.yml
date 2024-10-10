@@ -43,7 +43,7 @@ build-backend:
   #   GIT_SUBMODULE_STRATEGY: recursive  # Cloner les sous-modules
   image: maven:3.8-openjdk-17
   script:
-    - git submodule update --init -- lomebordes/backend
+    - git submodule update --init -- lomebordes
     - cd lomebordes/backend
     - mvn clean package
   artifacts:
