@@ -44,7 +44,7 @@ build-backend:
   image: maven:3.8-openjdk-17
   script:
     - cd lomebordes/backend
-    - mvn clean package
+    - mvn compile
   artifacts:
     paths:
       - target/*.jar
@@ -58,9 +58,9 @@ build-backend:
 #     - cd lomebordesfront/frontend
 #     - npm run test -- --coverage
 
-# Job pour tester le backend Spring Boot
-# test-backend:
-#   stage: test
-#   script:
-#     - cd lomebordes/backend
-#     - mvn test
+#Job pour tester le backend Spring Boot
+test-backend:
+  stage: test
+  script:
+    - cd lomebordes/backend
+    - mvn test
