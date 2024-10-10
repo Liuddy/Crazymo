@@ -42,8 +42,7 @@ build-backend:
   # variables:
   #   GIT_SUBMODULE_STRATEGY: recursive  # Cloner les sous-modules
   before_script: # Pouvoir cloner les sous-modules
-    - git submodule sync --recursive
-    - git submodule update --init --recursive
+    - git submodule update --init --recursive 
   script:
     - echo "Current directory is $PWD"
     - echo "List files in current directory"
