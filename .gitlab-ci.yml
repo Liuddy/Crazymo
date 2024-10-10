@@ -28,6 +28,8 @@ sonarqube-check:
 # Job pour construire le frontend Vue.js
 build-frontend: 
   stage: build
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive  # Cloner les sous-modules
   script:
     - cd lomebordesfront/frontend
     - npm install
@@ -36,6 +38,8 @@ build-frontend:
 # Job pour construire le backend Spring Boot
 build-backend:
   stage: build
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive  # Cloner les sous-modules
   script:
     - echo "Current directory is $PWD"
     - echo "List files in current directory"
