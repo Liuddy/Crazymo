@@ -1,4 +1,6 @@
-stages:          # List of stages for jobs, and their order of execution
+stages: # Diffrents job a executer dans l'ordre
+  - build
+  - test
   - sonarqube-check
 
 
@@ -8,8 +10,8 @@ sonarqube-check:
     name: sonarsource/sonar-scanner-cli:5.0
     entrypoint: [""]
   variables:
-    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"  # Defines the location of the analysis task cache
-    GIT_DEPTH: "0"  # Tells git to fetch all the branches of the project, required by the analysis task
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+    GIT_DEPTH: "0"
   cache:
     key: "${CI_JOB_NAME}"
     paths:
@@ -21,3 +23,35 @@ sonarqube-check:
     - merge_requests
     - main
 
+
+
+# Job pour construire le frontend Vue.js
+build-frontend: 
+  stage: build
+  script:
+    - cd lomebordesfront/frontend
+    - npm install
+    - npm run build
+
+# Job pour construire le backend Spring Boot
+build-backend:
+  stage: build
+  script:
+    - cd lomebordes/backend
+    - mvn clean package
+
+
+
+# Job pour tester le frontend Vue.js
+# test-frontend:
+#   stage: test
+#   script:
+#     - cd lomebordesfront/frontend
+#     - npm run test -- --coverage
+
+# Job pour tester le backend Spring Boot
+test-backend:
+  stage: test
+  script:
+    - cd lomebordes/backend
+    - mvn test
