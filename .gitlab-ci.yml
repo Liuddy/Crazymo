@@ -37,7 +37,7 @@ build-frontend:
 build-backend:
   stage: build
   script:
-    - echo "Current directory: $(pwd)"
+    - echo "Current directory: $PWD"
     - cd lomebordes/backend
     - mvn clean package
 
