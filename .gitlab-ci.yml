@@ -39,15 +39,16 @@ sonarqube-check:
 # Job pour construire le backend Spring Boot
 build-backend:
   stage: build
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive  # Cloner les sous-modules
+  # variables:
+  #   GIT_SUBMODULE_STRATEGY: recursive  # Cloner les sous-modules
   image: maven:3.8-openjdk-17
   script:
-    - echo "Current directory is $PWD"
-    - echo "List files in current directory"
-    - ls -la
+    - git submodule update --init -- lomebordes/backend
     - cd lomebordes/backend
     - mvn clean package
+  artifacts:
+    paths:
+      - target/*.jar
 
 
 
