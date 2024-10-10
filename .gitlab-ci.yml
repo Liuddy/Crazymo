@@ -25,16 +25,16 @@ sonarqube-check:
 
 
 
-# Job pour construire le frontend Vue.js
-# build-frontend: 
-#   stage: build
-#   variables:
-#     GIT_SUBMODULE_STRATEGY: recursive  # Cloner les sous-modules
-#   image: node:16
-#   script:
-#     - cd lomebordesfront/frontend
-#     - npm install
-#     - npm run build
+Job pour construire le frontend Vue.js
+build-frontend: 
+  stage: build
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive  # Cloner les sous-modules
+  image: node:16
+  script:
+    - cd lomebordesfront/frontend
+    - npm install
+    - npm run build
 
 # Job pour construire le backend Spring Boot
 build-backend:
