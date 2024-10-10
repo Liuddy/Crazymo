@@ -25,7 +25,7 @@ sonarqube-check:
 
 
 
-Job pour construire le frontend Vue.js
+#Job pour construire le frontend Vue.js
 build-frontend: 
   stage: build
   variables:
