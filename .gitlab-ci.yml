@@ -1,6 +1,6 @@
 stages: # Diffrents job a executer dans l'ordre
-  # - build
-  # - test
+  - build
+  - test
   - sonarqube-check
 
 cache:
@@ -55,12 +55,12 @@ build-backend:
 #     - cd lomebordesfront/frontend
 #     - npm run test -- --coverage
 
-#Job pour tester le backend Spring Boot
-# test-backend:
-#   stage: test
-#   script:
-#     - cd lomebordes/backend
-#     - mvn test
+# Job pour tester le backend Spring Boot
+test-backend:
+  stage: test
+  script:
+    - cd lomebordes/backend
+    - mvn test
 
 
 sonarqube-check:
