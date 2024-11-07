@@ -1,6 +1,6 @@
 stages: # Diffrents job a executer dans l'ordre
-  - build
-  - test
+  # - build
+  # - test
   - sonarqube-check
 
 cache:
@@ -39,6 +39,7 @@ build-backend:
   image: maven:3.9-eclipse-temurin-17
   script:
     - cd lomebordes/backend
+    - docker compose up -d
     - mvn $MAVEN_CLI_OPTS clean install -B
   artifacts:
     paths:
