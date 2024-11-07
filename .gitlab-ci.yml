@@ -7,28 +7,6 @@ cache:
   paths:
     - .m2/repository
 
-
-sonarqube-check:
-  stage: sonarqube-check
-  image: 
-    name: sonarsource/sonar-scanner-cli:5.0
-    entrypoint: [""]
-  variables:
-    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
-    GIT_DEPTH: "0"
-  cache:
-    key: "${CI_JOB_NAME}"
-    paths:
-      - .sonar/cache
-  script: 
-    - sonar-scanner
-  allow_failure: true
-  only:
-    - merge_requests
-    - main
-
-
-
 #Job pour construire le frontend Vue.js
 build-frontend: 
   stage: build
@@ -58,7 +36,7 @@ build-backend:
     HTTPS_PROXY: "http://proxy.univ-lyon1.fr:3128"
     https_proxy: "http://proxy.univ-lyon1.fr:3128"
     NO_PROXY: "localhost,127.0.0.1,forge.univ-lyon1.fr,docker"
-  image: maven:3.8-openjdk-17
+  image: maven:3.9-eclipse-temurin-17
   script:
     - cd lomebordes/backend
     - mvn $MAVEN_CLI_OPTS clean install -B
@@ -82,3 +60,23 @@ test-backend:
   script:
     - cd lomebordes/backend
     - mvn test
+
+
+sonarqube-check:
+  stage: sonarqube-check
+  image: 
+    name: sonarsource/sonar-scanner-cli:5.0
+    entrypoint: [""]
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+    GIT_DEPTH: "0"
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script: 
+    - sonar-scanner
+  allow_failure: true
+  only:
+    - merge_requests
+    - main
