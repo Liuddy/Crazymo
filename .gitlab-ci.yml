@@ -39,7 +39,7 @@ build-backend:
   image: maven:3.9-eclipse-temurin-17
   script:
     - cd lomebordes/backend
-    - docker compose up -d
+    # - docker compose up -d
     - mvn $MAVEN_CLI_OPTS clean install -B
   artifacts:
     paths:
