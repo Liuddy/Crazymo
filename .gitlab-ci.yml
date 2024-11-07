@@ -61,7 +61,7 @@ test-backend:
   image: maven:3.9-eclipse-temurin-17
   variables:
     MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
-    MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true -s $CI_PROJECT_DIR/ci_settings.xml"
+    MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true -DskipTests=false -Dmaven.test.skip=false"
     HTTP_PROXY: "http://proxy.univ-lyon1.fr:3128"
     http_proxy: "http://proxy.univ-lyon1.fr:3128"
     HTTPS_PROXY: "http://proxy.univ-lyon1.fr:3128"
@@ -69,7 +69,7 @@ test-backend:
     NO_PROXY: "localhost,127.0.0.1,forge.univ-lyon1.fr,docker"
   script:
     - cd lomebordes/backend
-    - mvn clean test
+    - mvn $MAVEN_CLI_OPTS clean test
 
 
 sonarqube-check:
