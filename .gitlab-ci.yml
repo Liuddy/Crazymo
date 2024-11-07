@@ -58,9 +58,10 @@ build-backend:
 # Job pour tester le backend Spring Boot
 test-backend:
   stage: test
+  image: maven:3.9-eclipse-temurin-17
   script:
     - cd lomebordes/backend
-    - mvn test
+    - mvn clean test
 
 
 sonarqube-check:
