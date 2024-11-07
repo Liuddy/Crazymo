@@ -1,6 +1,6 @@
 stages: # Diffrents job a executer dans l'ordre
   - build
-  # - test
+  - test
   - sonarqube-check
 
 cache:
