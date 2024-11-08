@@ -1,13 +1,46 @@
-# version: '3.5'
 
 services:
-  mariadb:
-    image: mariadb:11.5.2
-    container_name: mariadb-compose
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
+  backend:
+    build:
+      context: ./lomebordes/backend
+      dockerfile: Dockerfile
+    container_name: backend
     ports:
-      - "3306:3306"
-    volumes:
-      - mariadb-data:/var/lib/mysql
+      - '8080:8080'
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+    networks:
+      - app-network
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ./lomebordesfront/frontend
+      dockerfile: dockerfile
+    container_name: frontend
+    ports:
+      - '3000:80'
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  db:
+    build:
+      context: ./lomebordesfront/frontend
+      dockerfile: dockerfile
+    container_name: frontend
+    ports:
+      - '3312:3306'
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:
