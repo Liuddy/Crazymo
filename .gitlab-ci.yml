@@ -26,9 +26,7 @@ cache:
 # Job pour construire le frontend Vue.js
 build-frontend: 
   stage: build
-  variables:
-    GIT_SUBMODULE_STRATEGY: recursive  # Cloner les sous-modules
-  image: node:16
+  image: node:20
   script:
     - cd lomebordesfront/frontend
     - npm install
@@ -51,6 +49,7 @@ build-backend:
 # Job pour tester le frontend Vue.js
 test-frontend:
   stage: test
+  image: node:20
   script:
     - cd lomebordesfront/frontend
     - npm run test
