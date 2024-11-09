@@ -60,12 +60,12 @@ mvn spring-boot:run
 
 Lancer le projet avec un conteneur :
 ```
-docker build -t crazymo-back -f dockerfile.back
+docker build -t crazymo-back -f dockerfile.back .
 docker run --name crazymo-backend --network crazynetwork -d -p 8080:8080 crazymo-back
 ```
 
 ### Frontend
-Initialiser Vue.js (après avoir clôné le projet) :
+Initialiser Vue.js (après avoir cloné le projet) :
 ```
 cd frontend
 npm install
@@ -78,7 +78,7 @@ npm run dev
 
 Lancer le conteneur du projet :
 ```
-docker build -t crazymo-front
+docker build -t crazymo-front .
 docker run --name crazymo-frontend --network crazynetwork -d -p 5173:80 crazymo-front
 ```
 
