@@ -34,6 +34,7 @@ build-frontend:
   artifacts:
     paths:
       - lomebordesfront/frontend/node_modules
+      - lomebordesfront/frontend/package.json
 
 # Job pour construire le backend Spring Boot
 build-backend:
