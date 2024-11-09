@@ -84,4 +84,4 @@ docker run --name crazymo-frontend --network crazynetwork -d -p 5173:80 crazymo-
 
 
 ## Retour d'expérience
-La réalisation de ce projet a permit de renforcer notre maîtrise de Docker et des systèmes de conteneurisation, en plus de nous avoir apprit l'utilisation de SonarQube pour assurer la qualité du code de l'application. Nous avons aussi dû faire preuve d'une certaine rigueure pour appliquer toutes les bonnes pratiques de qualité de développement et pour mettre en place les tests unitaires.
+La réalisation de ce projet a permis de renforcer notre maîtrise de Docker et des systèmes de conteneurisation, en plus de nous avoir appris l'utilisation de SonarQube pour assurer la qualité du code de l'application. Nous avons aussi dû faire preuve d'une certaine rigueur pour appliquer toutes les bonnes pratiques de qualité de développement et pour mettre en place les tests unitaires.
