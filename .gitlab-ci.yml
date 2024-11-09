@@ -69,7 +69,7 @@ test-backend:
     NO_PROXY: "localhost,127.0.0.1,forge.univ-lyon1.fr,docker"
   script:
     - cd lomebordes/backend
-    - mvn $MAVEN_CLI_OPTS clean test
+    - mvn $MAVEN_CLI_OPTS clean test -Dspring.main.web-application-type=none
 
 
 sonarqube-check:
