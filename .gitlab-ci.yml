@@ -31,6 +31,9 @@ build-frontend:
     - cd lomebordesfront/frontend
     - npm install
     - npm run build
+  artifacts:
+    paths:
+      - lomebordesfront/frontend/node_modules
 
 # Job pour construire le backend Spring Boot
 build-backend:
@@ -50,6 +53,8 @@ build-backend:
 test-frontend:
   stage: test
   image: node:20
+  dependencies:
+    - build-frontend
   script:
     - cd lomebordesfront/frontend
     - npm run test
