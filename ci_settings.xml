@@ -2,20 +2,11 @@
     <proxies>
         <!-- Proxy defined by NetBeans IDE -->
         <proxy>
-            <id>netbeans-default-proxy</id>
+            <id>default-proxy</id>
             <active>true</active>
             <protocol>http</protocol>
             <host>proxy.univ-lyon1.fr</host>
             <port>3128</port>
-        </proxy>
-        <proxy>
-            <id>netbeans-default-proxy</id>
-            <active>false</active>
-            <protocol>http</protocol>
-            <host>proxy.univ-lyon1.fr</host>
-            <port>3128</port>
-            <!-- Proxy exclusion list: separate by pipe-symbol, e.g. 127.0.0.8|localhost -->
-            <nonProxyHosts>localhost|127.0.0.0/8|localhost.localdomain|127.0.0.1|[::1]</nonProxyHosts> 
         </proxy>
     </proxies>
 </settings>
