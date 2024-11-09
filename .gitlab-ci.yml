@@ -70,7 +70,7 @@ test-backend:
     - mvn $MAVEN_CLI_OPTS clean test 
 
 
-sonarqube-check:
+sonarqube-check-backend:
   stage: sonarqube-check
   image: 
     name: sonarsource/sonar-scanner-cli:5.0
@@ -83,6 +83,27 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script: 
+    - cd lomebordes/backend
+    - sonar-scanner
+  allow_failure: true
+  only:
+    - merge_requests
+    - main
+
+sonarqube-check-frontend:
+  stage: sonarqube-check
+  image: 
+    name: sonarsource/sonar-scanner-cli:5.0
+    entrypoint: [""]
+  variables:
+    SONAR_USER_HOME: "${CI_PROJECT_DIR}/.sonar"
+    GIT_DEPTH: "0"
+  cache:
+    key: "${CI_JOB_NAME}"
+    paths:
+      - .sonar/cache
+  script: 
+    - cd lomebordesfront/frontend
     - sonar-scanner
   allow_failure: true
   only:
