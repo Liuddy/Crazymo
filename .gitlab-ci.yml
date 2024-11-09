@@ -49,11 +49,11 @@ build-backend:
 
 
 # Job pour tester le frontend Vue.js
-# test-frontend:
-#   stage: test
-#   script:
-#     - cd lomebordesfront/frontend
-#     - npm run test --coverage
+test-frontend:
+  stage: test
+  script:
+    - cd lomebordesfront/frontend
+    - npm run test --coverage
 
 # Job pour tester le backend Spring Boot
 test-backend:
