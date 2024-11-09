@@ -35,6 +35,7 @@ build-frontend:
     paths:
       - lomebordesfront/frontend/node_modules
       - lomebordesfront/frontend/package.json
+      - lomebordesfront/frontend/package-lock.json
 
 # Job pour construire le backend Spring Boot
 build-backend:
