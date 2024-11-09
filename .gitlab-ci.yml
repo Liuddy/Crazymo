@@ -84,7 +84,7 @@ sonarqube-check-backend:
       - .sonar/cache
   script: 
     - cd lomebordes/backend
-    - sonar-scanner
+    - sonar-scanner -Dsonar.login=${SONAR_TOKEN} -Dsonar.host.url=${SONAR_HOST_URL}
   allow_failure: true
   only:
     - merge_requests
@@ -104,7 +104,7 @@ sonarqube-check-frontend:
       - .sonar/cache
   script: 
     - cd lomebordesfront/frontend
-    - sonar-scanner
+    - sonar-scanner -Dsonar.login=${SONAR_TOKEN} -Dsonar.host.url=${SONAR_HOST_URL}
   allow_failure: true
   only:
     - merge_requests
