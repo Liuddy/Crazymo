@@ -1,7 +1,7 @@
-# Douzmo
+# Crazymo
 Il s'agit d'un jeu web inspiré par *Tusmo*, lui-même basé sur le jeu *Motus*. Le principe est simple : le joueur doit deviner un mot chargé aléatoirement en un nombre d'essais limité.
 Pour chaque essai, il doit saisir un mot existant et les lettres de celui-ci seront colorisées en fonction de leur correspondance avec le mot à trouver.
-Dans Douzmo, les lettres correspondant exactement avec celles du mot à trouver sont colorées en vert, et celles existant dans le mot mais pas au même emplacement sont colorées en orange.
+Dans *Crazymo*, les lettres correspondant exactement avec celles du mot à trouver sont colorées en vert, et celles existant dans le mot mais pas au même emplacement sont colorées en orange.
 
 
 ## Équipe du projet
