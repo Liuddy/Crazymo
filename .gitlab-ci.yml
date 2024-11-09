@@ -43,7 +43,6 @@ build-backend:
   artifacts:
     paths:
       - target/*.jar
-      -
 
 
 
