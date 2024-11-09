@@ -16,3 +16,11 @@ git submodule update --init --recursive
 ```
 git submodule update --remote
 ```
+
+## Lancer le projet
+Demarrer les conteneurs du projet
+```
+docker compose up -d
+```
+
+Apres, lancer le projet via le lien 
