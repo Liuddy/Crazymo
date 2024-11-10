@@ -8,12 +8,12 @@ services:
     ports:
       - '8080:8080'
     environment:
-      SPRING_PROFILES_ACTIVE: dev
       SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb:3312/crazymo
     networks:
       - app-network
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   frontend:
     build:
@@ -36,6 +36,14 @@ services:
       - '3312:3312'
     networks:
       - app-network
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s  
+      interval: 10s     
+      timeout: 5s        
+      retries: 3  
 
 networks:
   app-network:
