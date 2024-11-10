@@ -42,6 +42,7 @@ Lancer le projet complet avec Docker Compose :
 docker compose up -d --build
 ```
 
+Pour se rendre sur le site de Crazymo : http://localhost:5173/
 
 ## Retour d'expérience
 La réalisation de ce projet a permis de renforcer notre maîtrise de Docker et des systèmes de conteneurisation, en plus de nous avoir appris l'utilisation de SonarQube pour assurer la qualité du code de l'application. Nous avons aussi dû faire preuve d'une certaine rigueur pour appliquer toutes les bonnes pratiques de qualité de développement et pour mettre en place les tests unitaires.
