@@ -1,13 +1,53 @@
-# version: '3.5'
 
 services:
-  mariadb:
-    image: mariadb:11.5.2
-    container_name: mariadb-compose
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
+  backend:
+    build:
+      context: ./lomebordes
+      dockerfile: dockerfile.back
+    container_name: backend
     ports:
-      - "3306:3306"
-    volumes:
-      - mariadb-data:/var/lib/mysql
+      - '8080:8080'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://mariadb:3312/crazymo
+    networks:
+      - app-network
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./lomebordesfront
+      dockerfile: dockerfile
+    container_name: frontend
+    ports:
+      - '5173:80'
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  db:
+    build:
+      context: ./lomebordes
+      dockerfile: dockerfile
+    container_name: mariadb
+    ports:
+      - '3312:3312'
+    networks:
+      - app-network
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      start_period: 10s  
+      interval: 10s     
+      timeout: 5s        
+      retries: 3  
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db_data:
