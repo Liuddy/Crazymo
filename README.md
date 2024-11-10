@@ -37,49 +37,9 @@ Mettre à jour les 2 sous-modules :
 git submodule update --remote
 ```
 
-### Backend
-Créer un réseau pour utiliser un conteneur :
+Lancer le projet complet avec Docker Compose :
 ```
-docker network create crazynetwork
-```
-
-Construire l'image de la base de données (MariaDB) :
-```
-docker build -t mariadb-dictionnaire .
-```
-
-Démarrer le conteneur MariaDB :
-```
-docker run --name mariadb-crazymo --network crazynetwork -d -p 3312:3312 mariadb-dictionnaire
-```
-
-Lancer le projet sans conteneur :
-```
-mvn spring-boot:run
-```
-
-Lancer le projet avec un conteneur :
-```
-docker build -t crazymo-back -f dockerfile.back .
-docker run --name crazymo-backend --network crazynetwork -d -p 8080:8080 crazymo-back
-```
-
-### Frontend
-Initialiser Vue.js (après avoir cloné le projet) :
-```
-cd frontend
-npm install
-```
-
-Lancer le projet :
-```
-npm run dev
-```
-
-Lancer le conteneur du projet :
-```
-docker build -t crazymo-front .
-docker run --name crazymo-frontend --network crazynetwork -d -p 5173:80 crazymo-front
+docker compose up -d --build
 ```
 
 
