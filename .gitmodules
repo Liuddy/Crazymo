@@ -1,8 +1,8 @@
 [submodule "lomebordes"]
 	path = lomebordes
 	url = https://forge.univ-lyon1.fr/p2203124/lomebordes.git
-	branch = main
+	branch = Develop
 [submodule "lomebordesfront"]
 	path = lomebordesfront
 	url = https://forge.univ-lyon1.fr/p2203124/lomebordesfront.git
-	branch = main
+	branch = Develop
