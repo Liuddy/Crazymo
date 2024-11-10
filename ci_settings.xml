@@ -1,0 +1,12 @@
+<settings>
+    <proxies>
+        <!-- Proxy defined by NetBeans IDE -->
+        <proxy>
+            <id>default-proxy</id>
+            <active>true</active>
+            <protocol>http</protocol>
+            <host>proxy.univ-lyon1.fr</host>
+            <port>3128</port>
+        </proxy>
+    </proxies>
+</settings>
