@@ -60,6 +60,10 @@ test-frontend:
   script:
     - cd lomebordesfront/frontend
     - npm run test
+    - npm run coverage
+  artifacts:
+    paths:
+      - lomebordesfront/frontend/coverage
 
 # Job pour tester le backend Spring Boot
 test-backend:
@@ -67,8 +71,10 @@ test-backend:
   image: maven:3.9-eclipse-temurin-17
   script:
     - cd lomebordes/backend
-    - mvn $MAVEN_CLI_OPTS clean test 
-
+    - mvn $MAVEN_CLI_OPTS clean test jacoco:report
+  artifacts:
+    paths:
+      - lomebordes/backend/target/*
 
 sonarqube-check-backend:
   stage: sonarqube-check
