@@ -63,7 +63,7 @@ test-frontend:
     - npm run coverage
   artifacts:
     paths:
-      - lomebordesfront/frontend/coverage
+      - lomebordesfront/frontend/coverage/*
 
 # Job pour tester le backend Spring Boot
 test-backend:
