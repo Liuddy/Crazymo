@@ -111,7 +111,7 @@ sonarqube-check-frontend:
   script: 
     - cd lomebordesfront/frontend
     - ls coverage
-    - sonar-scanner -Dsonar.token=${SONAR_TOKEN} -Dsonar.host.url=${SONAR_HOST_URL}
+    - sonar-scanner -Dsonar.token=${SONAR_TOKEN_FRONT} -Dsonar.host.url=${SONAR_HOST_URL}
   allow_failure: true
   only:
     - merge_requests
