@@ -1,8 +1,6 @@
 [submodule "lomebordes"]
 	path = lomebordes
-	url = https://forge.univ-lyon1.fr/p2203124/lomebordes.git
-	branch = main
+	url = https://github.com/Liuddy/CrazymoBack.git
 [submodule "lomebordesfront"]
 	path = lomebordesfront
-	url = https://forge.univ-lyon1.fr/p2203124/lomebordesfront.git
-	branch = main
+	url = https://github.com/Liuddy/CrazymoFront.git
